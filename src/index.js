@@ -1,17 +1,52 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React, { useState } from "react";
+import ReactDOM from "react-dom";
+// import React from "react";
+// import ReactDOM, { unstable_renderSubtreeIntoContainer } from "react-dom";
+import "./index.css";
+import { App } from "./App";
+
+// const myTextTest = (
+//   <p>Ghbdtn</p>
+//   <button onClick={clickText}>
+//     Нажми на кнопку
+//   </button>
+// );
+
+// const myTextClick = "Всем привет!!!";
+// const clickText = () => {
+//   console.log("клик!");
+//   return (
+//     <div>
+//       <h1 className="App-header">{myTextClick}</h1>
+//     </div>
+//   );
+// };
+// const Message = () => {
+//   return (<button onClick={clickText}>Нажми на кнопку</button>);
+// };
+
+const MessageList = ({ onClick }) => {
+  console.log("ntcn");
+  const [messages, sendMessages] = useState(["massage 1"]);
+};
+
+const sendMessage = (message) => {
+  sendMessages([...messages, message]);
+}
+const UserText = () => {
+  return (
+    <div>
+      <button onClick={() => sendMessage("Test")}>Отправить сообщение</button>
+      <h2>message</h2>
+    </div>
+  );
+};
 
 ReactDOM.render(
   <React.StrictMode>
+    <UserText />
     <App />
+    <MessageList />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
